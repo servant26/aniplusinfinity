@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- --------- UNICONS ---------- -->
+    <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.8/css/line.css">
+
+    <!-- --------- CSS ---------- -->
+    <link rel="stylesheet" href="assets/css/style.css">
+
+    <!-- --------- FAVICON ---------- -->
+    <link rel="shortcut icon" href="assets/images/favicon.png" type="image/x-icon">
+
+    <title>Aniplus</title>
+</head>
+<body>
+   <div class="container">
+    <!-- --------------- HEADER --------------- -->
+      <nav id="header">
+        <div class="nav-logo">
+            <p class="nav-name">Aniplus</p>
+        </div>
+      </nav>
+
+    <!-- -------------- MAIN ---------------- -->
+    <main class="wrapper">
+       <!-- -------------- FEATURED BOX ---------------- -->
+       <section class="featured-box" id="home">
+          <div class="featured-text">
+            <div class="featured-text-card">
+                <span id="currentDate"></span>
+            </div>
+            <div class="featured-name">
+                <p><span class="typedText"></span></p>
+            </div>
+            <div class="featured-text-info">
+                <p>haiii mau download anime yaa :D tekan aja tombol di bawah untuk masuk ke webnya
+                </p>
+            </div>
+            <div class="featured-text-btn">
+                <button class="btn" onclick="window.location.href='http://aniplus.infinityfreeapp.com/'">Link Start</button>
+            </div>
+          </div>
+          <div class="featured-image">
+            <div class="image">
+                <!-- Placeholder image is initially blank or hidden -->
+                <img id="randomImage" src="" alt="avatar" style="visibility:hidden;">
+            </div>
+          </div>
+       </section>
+    </main>
+    </div>
+
+    <!-- ----- TYPING JS Link ----- -->
+    <script src="https://unpkg.com/typed.js@2.0.16/dist/typed.umd.js"></script>
+
+    <!-- ----- SCROLL REVEAL JS Link----- -->
+    <script src="https://unpkg.com/scrollreveal"></script>
+
+    <!-- ----- MAIN JS ----- -->
+    <script src="assets/js/main.js"></script>
+
+    <script>
+        // Array of all the image names (GIF files)
+        const images = [
+            "akashii.gif", "anya.gif", "aqua.gif", "bocchi.gif", "chizuru.gif", 
+            "darkness.gif", "dazai.gif", "elaina.gif", "emilia.gif", "eren.gif", 
+            "geto.gif", "gojo.gif", "hinata.gif", "holo.gif", "inosuke.gif", 
+            "kageyama.gif", "kaguya.gif", "kakashi.gif", "kazuma.gif", "killua.gif", 
+            "kita.gif", "krul.gif", "kuroo.gif", "levi.gif", "lucy.gif", 
+            "madara.gif", "mai_sakurajima.gif", "megumin.gif", "mikasa.gif", 
+            "miku.gif", "minato.gif", "nezuko.gif", "nino.gif", 
+            "oikawa.gif", "rem.gif", "roy_mustang.gif", "saber.gif", 
+            "sasuke.gif", "shinoa.gif", "suzumiya_haruhi.gif", "taiga.gif", "tanjiro.gif", 
+            "todoroki.gif", "tohru.gif", "tsukasa.gif", "violet.gif", "yamada.gif", 
+            "zenitsu.gif", "zero_two.gif"
+        ];
+
+        // Function to select a random image from the array
+        function getRandomImage() {
+            const randomIndex = Math.floor(Math.random() * images.length); // Get a random index
+            return "assets/images/" + images[randomIndex]; // Return the full path
+        }
+
+        // Set the image source immediately and display the image
+        window.onload = function() {
+            const imageElement = document.getElementById("randomImage");
+            imageElement.src = getRandomImage(); // Set the random image source
+            imageElement.style.visibility = "visible"; // Make the image visible after it's set
+        };
+
+        document.addEventListener("DOMContentLoaded", function() {
+            const days = ["Minggu", "Senin", "Selasa", "Rabu", "Kamis", "Jumat", "Sabtu"];
+            const today = new Date();
+            const dayName = days[today.getDay()];
+            const date = today.toLocaleDateString('id-ID', {
+                day: 'numeric',
+                month: 'long',
+                year: 'numeric'
+            });
+
+            document.getElementById("currentDate").textContent = `${dayName}, ${date}`;
+        });
+    </script>
+
+</body>
+</html>
